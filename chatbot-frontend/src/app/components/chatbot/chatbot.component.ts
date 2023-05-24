@@ -14,11 +14,14 @@ export class ChatbotComponent {
   inputMessage: string = '';
   messages: { text: string; isBot: boolean }[] = [];
   isLogoClicked: boolean = false;
+  //isResponsive: boolean = false; // added this for responsiveness
+
 
   constructor(private location: Location) {}
 
   ngOnInit() {
     this.messages.push({ text: 'Hi User, Welcome to EarnTV Chatbot', isBot: true });
+    this.messages.push({ text: 'I\'m Mr. EarnTVChatbot 😎 Nice to meet you! 👋', isBot: true });
   }
 
   toggleChatbot(): void {
@@ -43,8 +46,11 @@ export class ChatbotComponent {
   }
 
   clearChatbotConversation(): void {
-    this.messages = [this.messages[0]];
-  }
+    this.messages = [
+      this.messages[0],
+      { text: 'I\'m Mr. EarnTVChatbot 😎 Nice to meet you! 👋', isBot: true }
+    ];
+  }  
 
   sendMessage(): void {
     const message = this.inputMessage.trim();
