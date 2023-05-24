@@ -1,4 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-chatbot',
@@ -12,6 +14,8 @@ export class ChatbotComponent {
   inputMessage: string = '';
   messages: { text: string; isBot: boolean }[] = [];
   isLogoClicked: boolean = false;
+
+  constructor(private location: Location) {}
 
   ngOnInit() {
     this.messages.push({ text: 'Hi User, Welcome to EarnTV Chatbot', isBot: true });
@@ -28,19 +32,15 @@ export class ChatbotComponent {
         this.scrollChatToBottom();
       }, 0);
     }
-    this.isLogoClicked = !this.isLogoClicked;
-  }
+    const url = this.isOpen ? '/chat' : '/';
+    this.location.go(url);
+  }  
 
   refreshChatbot(): void {
     this.clearChatbotConversation();
     this.inputMessage = '';
     this.focusInput();
   }
-
-  // this will remove the entire contents in the chatbot conversation including the default chat
-  // clearChatbotConversation(): void { 
-  //   this.messages = [];
-  // }
 
   clearChatbotConversation(): void {
     this.messages = [this.messages[0]];
@@ -86,12 +86,10 @@ export class ChatbotComponent {
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
   }
 
-
   focusInput(): void {
     const chatbotInput = document.getElementById('chatbot-input');
     if (chatbotInput) {
       chatbotInput.focus();
     }
   }
-  
 }

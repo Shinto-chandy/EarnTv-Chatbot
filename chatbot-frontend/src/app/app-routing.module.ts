@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'chat', pathMatch: 'full' },
+  { path: '', component: ChatbotComponent },
   { path: 'chat', component: ChatbotComponent }
 ];
 
@@ -12,4 +12,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
