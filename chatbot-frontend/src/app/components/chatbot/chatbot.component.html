@@ -1,6 +1,8 @@
 <div class="chatbot-logo" (click)="toggleChatbot()" [ngClass]="{ 'pulse-animation': !isLogoClicked && !isOpen }">
     <i class="fas fa-comments"></i>
+    <div class="chat-message">Hi! 👋🏻 How May I Help You Today?</div>
 </div>
+
 
 <div class="chatbot-popup" *ngIf="isOpen">
     <div class="header">

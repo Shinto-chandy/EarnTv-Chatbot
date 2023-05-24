@@ -68,8 +68,48 @@
   align-items: center;
   cursor: pointer;
   z-index: 100;
-  animation: heartbeat 1.5s infinite;
 }
+
+.chat-message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 13px; /* Adjust the font size as needed */
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.chatbot-logo .chat-message {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: -180px;
+  background-color: #337ab7;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.chatbot-logo:hover .chat-message {
+  visibility: hidden;
+  opacity: 0;
+  left: -50px;
+  display: none; /* Add this line to hide the message on hover */
+}
+
 
 .pulse-animation {
   animation: pulse 1.5s infinite;
