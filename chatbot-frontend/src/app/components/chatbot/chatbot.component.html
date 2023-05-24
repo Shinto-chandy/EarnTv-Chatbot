@@ -1,0 +1,38 @@
+<div class="chatbot-logo" (click)="toggleChatbot()" [ngClass]="{ 'pulse-animation': !isLogoClicked && !isOpen }">
+    <i class="fas fa-comments"></i>
+</div>
+
+<div class="chatbot-popup" *ngIf="isOpen">
+    <div class="header">
+        <h4 class="title">
+            <div class="logo-wrapper">
+                <img src="/assets/logo.png" class="logo-icon" alt="Logo">
+                <div class="dot"></div> <!-- Add the dot wrapper -->
+            </div>
+            EarnTV Chatbot
+            <div class="status">Online</div>
+        </h4>
+        <div class="action-buttons">
+            <button class="btn btn-link refresh-button" (click)="refreshChatbot()">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+            <button class="btn btn-link close-button" (click)="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="chatbot-body">
+        <div class="chatbot-conversation" id="chatbot-conversation">
+            <div *ngFor="let message of messages" class="chat-message">
+                <span class="profile-icon"
+                    [ngClass]="{ 'bot-icon': message.isBot, 'user-icon': !message.isBot }"></span>
+                <span class="message-text">{{ message.text }}</span>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" [(ngModel)]="inputMessage" class="form-control text-primary"
+                placeholder="Type your message..." (keydown.enter)="sendMessage()" />
+            <button class="btn btn-success" (click)="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>

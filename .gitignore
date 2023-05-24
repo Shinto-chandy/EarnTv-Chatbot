@@ -1,0 +1,5 @@
+
+# ignore all .txt files
+chatbot-frontend/node_modules
+new 1.txt
+django_chatbot.txt
