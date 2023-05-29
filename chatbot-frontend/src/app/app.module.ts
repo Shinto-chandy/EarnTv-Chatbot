@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+//import { MoviedialogComponent } from './components/moviedialog/moviedialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    //MoviedialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,  //import those here
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
